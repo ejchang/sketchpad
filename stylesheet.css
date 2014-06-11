@@ -1,0 +1,32 @@
+h1, h5{
+	text-align: center;
+}
+
+h1{
+	margin-bottom:0;
+}
+
+.buttons{
+	text-align: center;
+}
+
+#container{
+	text-align:center;
+}
+
+#grid{
+	height:800;
+	width :800;
+	font-size:0;
+	display:inline-block;
+
+}
+
+.row{
+	border-top:0px;
+}
+
+.square{
+	display:inline-block;
+	margin: 1px;
+};
