@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	var dimension;
 	var $selection;
+	var options;
 
 	$("button").click(function(){
 		do{
@@ -9,11 +10,10 @@ $(document).ready(function(){
 		$('#container').empty();
 		$('#container').append("<div id='grid'></div>");
 		$selection = parseInt($(this).attr("value"),10);
-		createGrid(dimension);
 		if($selection ===2){
-			forFun();
+			options = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
 		}
-
+		createGrid(dimension);
 	});
 
 	$(document).on('mouseenter','.square',function(){
@@ -26,18 +26,10 @@ $(document).ready(function(){
 				$(this).css("opacity", (opacity > 0.1) ? (opacity -0.1) : opacity);
 				break;
 			case 2:
-				$(this).css("opacity", "0");
+				$(this).css("background-color", randomColor());
 				break;
 		};
 	});
-
-	var forFun = function(){
-		$('.square').css("background-color", "white");
-		$('.square').css("margin", "0px");
-		$('.square').css("border",("1px solid black"));
-		$('#grid').css("background-image", "url(http://img1.wikia.nocookie.net/__cb20140201013626/trollpasta/images/thumb/a/a6/Dickbutt.jpg/633px-Dickbutt.jpg)");
-		$('#grid').css("background-repeat","no-repeat");
-	};
 
 	var createGrid = function(dimension){
 		var boxDim = 800/dimension;
@@ -51,6 +43,15 @@ $(document).ready(function(){
 		$('.square').height(boxDim+"px");
 		$('.square').css("background-color","black");
 	};
+
+	var randomColor = function(){
+		var color = "#";
+		for(var i=0;i<6;i++){
+			var temp = Math.floor((Math.random() * 15));
+			color = color.concat(options[temp]);
+		}
+		return color;
+	}
 
 
 });
